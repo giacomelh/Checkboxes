@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Checkboxes.MainPage">
+
+    <Grid Padding="20" RowSpacing="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Linha 1: titulo -->
+        <Label Grid.Row="0" Text="Minhas Tarefas"
+               FontSize="24" FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <!-- Linha 2: campo da tarefa + botao -->
+        <Grid Grid.Row="1" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Entry Grid.Column="0" x:Name="txtTarefa"
+                   Placeholder="Digite a tarefa"
+                   Completed="btnAdicionar_Clicked"/>
+            <Button Grid.Column="1" x:Name="btnAdicionar"
+                    Text="Adicionar"
+                    Clicked="btnAdicionar_Clicked"/>
+        </Grid>
+
+        <!-- Linha 3: lista das tarefas (preenchida pelo codigo) -->
+        <ScrollView Grid.Row="2">
+            <VerticalStackLayout x:Name="stkTarefas" Spacing="5"/>
+        </ScrollView>
+
+        <!-- Rodape: contador -->
+        <Label Grid.Row="3" x:Name="lbContador"
+               Text="0 de 0 tarefas concluídas"
+               HorizontalOptions="Center"/>
+    </Grid>
+</ContentPage>
